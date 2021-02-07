@@ -8,9 +8,9 @@ class Octokit:
         self.headers = {"Authorization": "token %s" % token}
         self.base_url = "https://api.github.com"
     
-    def request(self, url, body={}, **options):
+    def request(self, url, options):
         method, path = url.split(" ")
-        result = requests.request(method, "%s%s" % (options.get("base_url") or self.base_url, path), headers={**self.headers, **(options.get("headers") or {})}, json=body, params=options.get("query"))
+        result = requests.request(method, "%s%s" % (options.get("base_url") or self.base_url, path), headers={**self.headers, **(options.get("headers") or {})}, json=options.get("body"), params=options.get("query"))
         
         try:
             response = json.loads(result.text)
