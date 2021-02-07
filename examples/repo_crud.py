@@ -12,7 +12,9 @@ octokit.request("POST /user/repos", {
 octokit.request("GET /repos/owner/repo") # get repository
 
 octokit.request("PATCH /repos/owner/repo", {
-    "name": "updated_name"
+    "body": {
+        "name": "updated_name"
+    }
 }) # update repository
 
 octokit.request("DELETE /repos/owner/repo") # delete repository
