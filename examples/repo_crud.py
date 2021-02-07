@@ -4,7 +4,9 @@ octokit = Octokit("api_key")
 
 
 octokit.request("POST /user/repos", {
-    "name": "repo_name"
+    "body": {
+        "name": "repo_name"
+    }
 }) # create repository
 
 # replace owner with the repository owner name and repo with the repository name for example /repos/husseinraed/octokit.py
